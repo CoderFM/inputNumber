@@ -15,9 +15,9 @@
 		15650AD31D814C1700EAC3C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15650AD11D814C1700EAC3C3 /* LaunchScreen.storyboard */; };
 		15650ADE1D814C1700EAC3C3 /* inputPhoneNumberTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15650ADD1D814C1700EAC3C3 /* inputPhoneNumberTests.m */; };
 		15650AE91D814C1700EAC3C3 /* inputPhoneNumberUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15650AE81D814C1700EAC3C3 /* inputPhoneNumberUITests.m */; };
-		15650AF81D814C2500EAC3C3 /* NumberCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15650AF71D814C2500EAC3C3 /* NumberCollectionView.m */; };
-		15650AFB1D81520400EAC3C3 /* NumberCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15650AFA1D81520400EAC3C3 /* NumberCollectionCell.m */; };
-		15650AFE1D81524100EAC3C3 /* NumberItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 15650AFD1D81524100EAC3C3 /* NumberItem.m */; };
+		15650B061D81572700EAC3C3 /* NumberCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15650B011D81572700EAC3C3 /* NumberCollectionCell.m */; };
+		15650B071D81572700EAC3C3 /* NumberCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15650B031D81572700EAC3C3 /* NumberCollectionView.m */; };
+		15650B081D81572700EAC3C3 /* NumberItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 15650B051D81572700EAC3C3 /* NumberItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,12 +54,12 @@
 		15650AE41D814C1700EAC3C3 /* inputPhoneNumberUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = inputPhoneNumberUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		15650AE81D814C1700EAC3C3 /* inputPhoneNumberUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = inputPhoneNumberUITests.m; sourceTree = "<group>"; };
 		15650AEA1D814C1700EAC3C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		15650AF61D814C2500EAC3C3 /* NumberCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberCollectionView.h; sourceTree = "<group>"; };
-		15650AF71D814C2500EAC3C3 /* NumberCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberCollectionView.m; sourceTree = "<group>"; };
-		15650AF91D81520400EAC3C3 /* NumberCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberCollectionCell.h; sourceTree = "<group>"; };
-		15650AFA1D81520400EAC3C3 /* NumberCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberCollectionCell.m; sourceTree = "<group>"; };
-		15650AFC1D81524100EAC3C3 /* NumberItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberItem.h; sourceTree = "<group>"; };
-		15650AFD1D81524100EAC3C3 /* NumberItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberItem.m; sourceTree = "<group>"; };
+		15650B001D81572700EAC3C3 /* NumberCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberCollectionCell.h; sourceTree = "<group>"; };
+		15650B011D81572700EAC3C3 /* NumberCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberCollectionCell.m; sourceTree = "<group>"; };
+		15650B021D81572700EAC3C3 /* NumberCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberCollectionView.h; sourceTree = "<group>"; };
+		15650B031D81572700EAC3C3 /* NumberCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberCollectionView.m; sourceTree = "<group>"; };
+		15650B041D81572700EAC3C3 /* NumberItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberItem.h; sourceTree = "<group>"; };
+		15650B051D81572700EAC3C3 /* NumberItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,12 +110,7 @@
 		15650AC21D814C1700EAC3C3 /* inputPhoneNumber */ = {
 			isa = PBXGroup;
 			children = (
-				15650AF61D814C2500EAC3C3 /* NumberCollectionView.h */,
-				15650AF71D814C2500EAC3C3 /* NumberCollectionView.m */,
-				15650AF91D81520400EAC3C3 /* NumberCollectionCell.h */,
-				15650AFA1D81520400EAC3C3 /* NumberCollectionCell.m */,
-				15650AFC1D81524100EAC3C3 /* NumberItem.h */,
-				15650AFD1D81524100EAC3C3 /* NumberItem.m */,
+				15650AFF1D81572700EAC3C3 /* NumberView */,
 				15650AC61D814C1700EAC3C3 /* AppDelegate.h */,
 				15650AC71D814C1700EAC3C3 /* AppDelegate.m */,
 				15650AC91D814C1700EAC3C3 /* ViewController.h */,
@@ -153,6 +148,19 @@
 				15650AEA1D814C1700EAC3C3 /* Info.plist */,
 			);
 			path = inputPhoneNumberUITests;
+			sourceTree = "<group>";
+		};
+		15650AFF1D81572700EAC3C3 /* NumberView */ = {
+			isa = PBXGroup;
+			children = (
+				15650B001D81572700EAC3C3 /* NumberCollectionCell.h */,
+				15650B011D81572700EAC3C3 /* NumberCollectionCell.m */,
+				15650B021D81572700EAC3C3 /* NumberCollectionView.h */,
+				15650B031D81572700EAC3C3 /* NumberCollectionView.m */,
+				15650B041D81572700EAC3C3 /* NumberItem.h */,
+				15650B051D81572700EAC3C3 /* NumberItem.m */,
+			);
+			path = NumberView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,11 +293,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15650AFB1D81520400EAC3C3 /* NumberCollectionCell.m in Sources */,
+				15650B071D81572700EAC3C3 /* NumberCollectionView.m in Sources */,
 				15650ACB1D814C1700EAC3C3 /* ViewController.m in Sources */,
-				15650AF81D814C2500EAC3C3 /* NumberCollectionView.m in Sources */,
 				15650AC81D814C1700EAC3C3 /* AppDelegate.m in Sources */,
-				15650AFE1D81524100EAC3C3 /* NumberItem.m in Sources */,
+				15650B081D81572700EAC3C3 /* NumberItem.m in Sources */,
+				15650B061D81572700EAC3C3 /* NumberCollectionCell.m in Sources */,
 				15650AC51D814C1700EAC3C3 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
