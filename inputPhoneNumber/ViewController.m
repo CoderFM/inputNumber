@@ -7,16 +7,32 @@
 //
 
 #import "ViewController.h"
+#import "NumberCollectionView.h"
 
 @interface ViewController ()
+
+@property(nonatomic, weak)NumberCollectionView *numberView;
 
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    NumberCollectionView *view = [NumberCollectionView numberCollectionViewWithItemHeight:30 cloum:3];
+    
+    view.backgroundColor = [UIColor orangeColor];
+    
+    [self.view addSubview:view];
+    
+    self.numberView = view;
+}
+
+- (void)viewWillLayoutSubviews{
+    [super viewWillLayoutSubviews];
+    self.numberView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
 }
 
 - (void)didReceiveMemoryWarning {
