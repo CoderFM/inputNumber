@@ -6,13 +6,13 @@
 //  Copyright © 2016年 周发明. All rights reserved.
 //
 
-#import "NumberItem.h"
+#import "FMNumberItem.h"
 
-@implementation NumberItem
+@implementation FMNumberItem
 
 + (instancetype)numberItemWithNumber:(NSString *)number isNumber:(BOOL)isNumber{
     
-    NumberItem *item = [[NumberItem alloc] init];
+    FMNumberItem *item = [[FMNumberItem alloc] init];
     
     item.number = number;
     

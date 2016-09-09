@@ -6,20 +6,20 @@
 //  Copyright © 2016年 周发明. All rights reserved.
 //
 
-#import "NumberCollectionCell.h"
-#import "NumberItem.h"
+#import "FMNumberCollectionCell.h"
+#import "FMNumberItem.h"
 
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define PROPORTION (SCREEN_WIDTH / 320.0)
 #define RGBColor(r,g,b) [UIColor colorWithRed:r / 255.0 green:g / 255.0 blue:b / 255.0 alpha:1]
 
-@interface NumberCollectionCell ()<UITextFieldDelegate>
+@interface FMNumberCollectionCell ()<UITextFieldDelegate>
 
 @property(nonatomic, weak)UITextField *textFeild;
 
 @end
 
-@implementation NumberCollectionCell
+@implementation FMNumberCollectionCell
 
 - (instancetype)initWithFrame:(CGRect)frame{
     
@@ -33,7 +33,7 @@
     return self;
 }
 
-- (void)setItem:(NumberItem *)item{
+- (void)setItem:(FMNumberItem *)item{
     
     _item = item;
     

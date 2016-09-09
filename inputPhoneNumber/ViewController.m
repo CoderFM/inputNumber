@@ -7,11 +7,11 @@
 //
 
 #import "ViewController.h"
-#import "NumberCollectionView.h"
+#import "FMNumberCollectionView.h"
 
 @interface ViewController ()
 
-@property(nonatomic, weak)NumberCollectionView *numberView;
+@property(nonatomic, weak)FMNumberCollectionView *numberView;
 
 @end
 
@@ -21,7 +21,7 @@
     
     [super viewDidLoad];
     
-    NumberCollectionView *view = [NumberCollectionView numberCollectionViewWithItemHeight:30 cloum:3];
+    FMNumberCollectionView *view = [FMNumberCollectionView numberCollectionViewWithItemHeight:30 cloum:2];
     
     view.backgroundColor = [UIColor orangeColor];
     
@@ -32,7 +32,7 @@
 
 - (void)viewWillLayoutSubviews{
     [super viewWillLayoutSubviews];
-    self.numberView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+    self.numberView.frame = CGRectMake(0, 20, self.view.bounds.size.width, self.view.bounds.size.height * 0.3);
 }
 
 - (void)didReceiveMemoryWarning {

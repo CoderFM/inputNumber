@@ -6,21 +6,27 @@
 //  Copyright © 2016年 周发明. All rights reserved.
 //
 
-#import "NumberCollectionView.h"
-#import "NumberCollectionCell.h"
-#import "NumberItem.h"
+#import "FMNumberCollectionView.h"
+#import "FMNumberCollectionCell.h"
+#import "FMNumberItem.h"
 
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define PROPORTION (SCREEN_WIDTH / 320.0)
 #define RGBColor(r,g,b) [UIColor colorWithRed:r / 255.0 green:g / 255.0 blue:b / 255.0 alpha:1]
 
-@interface NumberCollectionView ()<UICollectionViewDataSource, UICollectionViewDelegate>
-
+@interface FMNumberCollectionView ()<UICollectionViewDataSource, UICollectionViewDelegate>
+/**
+ *  列数
+ */
 @property(nonatomic, assign)NSInteger cloum;
+/**
+ *  cell高度
+ */
+@property(nonatomic, assign)CGFloat itemHeight;
 
 @end
 
-@implementation NumberCollectionView
+@implementation FMNumberCollectionView
 
 + (instancetype)numberCollectionViewWithItemHeight:(CGFloat)height{
     return [self numberCollectionViewWithItemHeight:height cloum:3];
@@ -34,9 +40,11 @@
     
     layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
     
-    NumberCollectionView *numberView = [[NumberCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+    FMNumberCollectionView *numberView = [[FMNumberCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     
     numberView.cloum = cloum;
+    
+    numberView.itemHeight = height;
     
     return numberView;
 }
@@ -51,7 +59,7 @@
         
         self.dataSource = self;
         
-        [self registerClass:[NumberCollectionCell class] forCellWithReuseIdentifier:NSStringFromClass([NumberCollectionCell class])];
+        [self registerClass:[FMNumberCollectionCell class] forCellWithReuseIdentifier:NSStringFromClass([FMNumberCollectionCell class])];
 
     }
     return self;
@@ -65,11 +73,11 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    NumberCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([NumberCollectionCell class]) forIndexPath:indexPath];
+    FMNumberCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([FMNumberCollectionCell class]) forIndexPath:indexPath];
     
     __weak typeof(self)weakSelf = self;
     
-    [cell setTextFeildChangeBlock:^(NumberCollectionCell *cell, NumberItem *item) {
+    [cell setTextFeildChangeBlock:^(FMNumberCollectionCell *cell, FMNumberItem *item) {
         
         NSIndexPath *indexPath2 = [collectionView indexPathForCell:cell];
         
@@ -79,13 +87,13 @@
     
     [cell setNextNumberTextFeildBlock:^{
         
-        NumberItem *item = [weakSelf.numbers lastObject];
+        FMNumberItem *item = [weakSelf.numbers lastObject];
         
         NSString *number = item.number;
         
         if ([weakSelf isMobile:number]) {
             
-            [weakSelf.numbers addObject:[NumberItem numberItemWithNumber:@"" isNumber:NO]];
+            [weakSelf.numbers addObject:[FMNumberItem numberItemWithNumber:@"" isNumber:NO]];
             
             NSIndexPath *indexPath1 = [NSIndexPath indexPathForItem:weakSelf.numbers.count - 1 inSection:0];
             
@@ -99,34 +107,39 @@
                 
                 NSInteger lines = count % cloum == 0 ? count / cloum : count / cloum + 1;
                 
-                CGPoint offset = CGPointMake(0, lines * (27 * PROPORTION + 10) + 10);
+                CGPoint offset = CGPointMake(0, lines * (weakSelf.itemHeight + 10) + 10);
                 
-                if (offset.y > (SCREEN_WIDTH / 320 * 100)) {
+                CGFloat height = self.bounds.size.height;
+                
+                if (offset.y > height) {
                     
-                    offset.y = offset.y - SCREEN_WIDTH / 320 * 100;
+                    offset.y = offset.y - height;
                     
                     offset.y = offset.y + 10;
                     
-                    [collectionView setContentOffset:offset animated:NO];
+                    collectionView.contentOffset = offset;
+                    
                 }
                 
             }
             
-            NumberCollectionCell *cell1 = (NumberCollectionCell *)[collectionView cellForItemAtIndexPath:indexPath1];
+            FMNumberCollectionCell *cell1 = (FMNumberCollectionCell *)[collectionView cellForItemAtIndexPath:indexPath1];
             
             [cell1 textFeildBecomeFirstResponder];
         }
         
     }];
     
-    [cell setTextFeildEmptyString:^(NumberCollectionCell *cell, NumberItem *item) {
+    [cell setTextFeildEmptyString:^(FMNumberCollectionCell *cell, FMNumberItem *item) {
         
         NSIndexPath *indexPath = [weakSelf indexPathForCell:cell];
         
         if (indexPath.row != weakSelf.numbers.count - 1) {
             
             NSIndexPath *indexPath1 = [NSIndexPath  indexPathForItem:self.numbers.count -1 inSection:0];
-            NumberCollectionCell *cell1 = (NumberCollectionCell *)[collectionView cellForItemAtIndexPath:indexPath1];
+            
+            FMNumberCollectionCell *cell1 = (FMNumberCollectionCell *)[collectionView cellForItemAtIndexPath:indexPath1];
+            
             [cell1 textFeildBecomeFirstResponder];
             
             [weakSelf.numbers removeObjectAtIndex:indexPath.row];
@@ -168,7 +181,7 @@
 
 - (NSMutableArray *)numbers{
     if (_numbers == nil) {
-        _numbers = [@[[NumberItem numberItemWithNumber:@"" isNumber:NO]] mutableCopy];
+        _numbers = [@[[FMNumberItem numberItemWithNumber:@"" isNumber:NO]] mutableCopy];
     }
     return _numbers;
 }

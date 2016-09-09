@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NumberCollectionView : UICollectionView
+@interface FMNumberCollectionView : UICollectionView
 
 + (instancetype)numberCollectionViewWithItemHeight:(CGFloat)height;
 

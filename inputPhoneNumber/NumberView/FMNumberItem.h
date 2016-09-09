@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NumberItem : NSObject
+@interface FMNumberItem : NSObject
 
 @property(nonatomic, copy)NSString *number;
 
